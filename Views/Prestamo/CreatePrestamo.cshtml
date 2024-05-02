@@ -1,0 +1,29 @@
+﻿@using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
+@model CreatePrestamoViewModel;
+<form method="post" >
+  <div class="form-group">
+    <label asp-for="Monto">Monto del Prestamo</label>
+    <input asp-for="Monto" type="number" min="0.00" max="1000000.00" class="form-control"  placeholder="Introduzca La cantidad del Prestamo">
+ 
+</div>
+
+  <div class="form-group">
+    <label asp-for="Interes">Interes del credito</label>
+    <input asp-for="Interes" type="number" class="form-control"  placeholder="Password">
+  </div>
+    <div class="form-group">
+    <label asp-for="TipoGarantia"> Tipo de Garantia </label>
+     <input asp-for="TipoGarantia" type="text" class="form-control" >
+  </div>
+    <div class="form-group">
+        <label asp-for="Valor">Valor de Garantia</label>
+        <input asp-for="Valor" type="text" class="form-control">
+
+    </div> 
+    <div class="form-group">
+        <label asp-for="Ubicacion">Ubicacion de Prestamo</label>
+        <input asp-for="Ubicacion" type="text" class="form-control">
+    </div> 
+
+  <button type="submit" class="btn btn-primary">Solicitar Prestamo</button>
+</form>

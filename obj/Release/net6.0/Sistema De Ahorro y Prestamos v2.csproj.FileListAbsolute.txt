@@ -1,0 +1,8 @@
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.csproj.AssemblyReference.cache
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.AssemblyInfoInputs.cache
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.AssemblyInfo.cs
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.csproj.CoreCompileInputs.cache
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.RazorAssemblyInfo.cache
+C:\Users\CHINO\source\repos\Sistema De Ahorro y Prestamos v2\obj\Release\net6.0\Sistema De Ahorro y Prestamos v2.RazorAssemblyInfo.cs
