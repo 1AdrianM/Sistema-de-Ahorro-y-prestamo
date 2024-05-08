@@ -22,7 +22,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Repositorio
     
 
         public decimal CalcularCuotaPrestamo(decimal Monto, decimal interes, int number_years, int paymentPerYear)
-        {
+       {  
             //Datos del prestamo
             
          
@@ -48,23 +48,13 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Repositorio
             return Save();
         }
 
-        public bool Delete(Prestamo prestamo)
-        {
-            _context.Remove(prestamo);
-            return Save();
-        }
-
+     
         public async Task<Prestamo?> GetPrestamoById(int id)
         {
             return await _context.Prestamos.FirstOrDefaultAsync(i => i.IdPrestamo == id);
         }
 
-        public bool Save()
-        {
-            var saved = _context.SaveChanges();
-            return saved > 0;
 
-                }
         //Agregar Asyncronia 
         public bool SolicitudPrestamo(Prestamo prestamo, DateTime? FechaSolicitud)
         {
@@ -90,13 +80,25 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Repositorio
                prestamoAproved = true;
             }
         }
+  public bool Delete(Prestamo prestamo)
+        {
+            _context.Remove(prestamo);
+            return Save();
+        }
 
         public bool Update(Prestamo prestamo)
         {
             _context.Update(prestamo);
             return Save();
         }
+          public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0;
 
-   //Por Agregar mas funcionalidades
+                }
+
+
     }
 }
+       

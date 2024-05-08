@@ -8,13 +8,13 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 {
     public class PrestamoController : Controller
     {
-        private readonly PrestamoRepository _prestamo;
+        //private readonly PrestamoRepository _prestamo;
         private readonly ahorro_prestamoDbContext _context;
         private readonly GarantiaRepository _garantia;
 
-        public PrestamoController(ahorro_prestamoDbContext context, PrestamoRepository prestamo, GarantiaRepository garantia)
+        public PrestamoController(ahorro_prestamoDbContext context,/* PrestamoRepository prestamo*/ GarantiaRepository garantia)
         {
-            _prestamo = prestamo;
+        //    _prestamo = prestamo;
             _context  = context;
             _garantia = garantia;
         }
@@ -26,14 +26,15 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreatePrestamo(int id){
+        public IActionResult Create(){
 
-
+var response = new CreatePrestamoViewModel();
+        
+        /*  
            var garantia = _garantia.GetGarantiaById(id);
 
             var prestamo = _prestamo.GetPrestamoById(id);
         
-        /*    var PrestmoVM = CreatePrestamoViewModel{
 
 
           IdPrestamo
@@ -58,15 +59,15 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 
             };*/
 
-            return View();  
+            return View(response);  
         }
 
         [HttpPost]
-        public IActionResult CreatePrestamo(CreatePrestamoViewModel prestamoViewModel,  DateTime? FechaSolicitud)
+        public IActionResult Create(CreatePrestamoViewModel prestamoViewModel,  DateTime? FechaSolicitud)
         {
             if (!ModelState.IsValid) return View("Error");
 
-            var prestamo = new Prestamo
+        /*    var prestamo = new Prestamo
             { 
             
             };
@@ -77,7 +78,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             _garantia.Add(new_garantia);
 
             var Solicitud_Aprobada = _prestamo.SolicitudPrestamo(prestamo, FechaSolicitud);
-          
+          */
 
             return View();
         }
@@ -102,9 +103,6 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
      [HttpPost]    
     public IActionResult Garantia(GarantiaViewModel garantiaViewModel)
         {
-
-            
-
             return View(); 
         }
     

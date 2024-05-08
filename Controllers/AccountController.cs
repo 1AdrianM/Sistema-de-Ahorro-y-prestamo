@@ -44,7 +44,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("LogIndex", "Home");
+                        return RedirectToAction("Dash", "Home");
 
 
                     }
@@ -77,7 +77,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             var NewUser = new User()
             {
                 Email =  registerViewModel.Email,
-                Username = registerViewModel.Email
+                UserName = registerViewModel.Email
 
 
             };
@@ -88,7 +88,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             
             await _userManager.AddToRoleAsync(NewUser, Roles.User);
             
-            return RedirectToAction("LogIndex","Home");
+            return RedirectToAction("Dash","Home");
 
 
         }

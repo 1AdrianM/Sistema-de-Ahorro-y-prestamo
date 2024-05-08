@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Sistema_De_Ahorro_y_Prestamos_v2.Interface;
 using Sistema_De_Ahorro_y_Prestamos_v2.Models;
 using Sistema_De_Ahorro_y_Prestamos_v2.Repositorio;
@@ -12,10 +14,20 @@ builder.Services.AddScoped<Ioinversion, InversionistaRepository>();
 builder.Services.AddScoped<IPrestamo, PrestamoRepository>();
 builder.Services.AddDbContext<ahorro_prestamoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("conexion"));
 });
-
+builder.Services.AddIdentity<User, IdentityRole>()
+.AddEntityFrameworkStores<ahorro_prestamoDbContext>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie();
 var app = builder.Build();
+
+if(args.Length == 1 && args[0].ToLower() == "seeddata"){
+    
+
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -29,7 +41,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -28,7 +28,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Repositorio
            return await _context.Users.ToListAsync();  
         }
 
-        public async Task<User?> GetUserById(int id)
+        public async Task<User?> GetUserById(string id)
         {
             return await _context.Users.FirstOrDefaultAsync(i => i.Id == id);
         }

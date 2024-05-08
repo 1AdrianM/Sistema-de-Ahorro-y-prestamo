@@ -6,7 +6,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Interface
     {
         
         Task<Prestamo?> GetPrestamoById(int id);
-          bool SolicitudPrestamo(Prestamo prestamo, DateTime ?FechaSolicitud);
+         bool SolicitudPrestamo(Prestamo prestamo, DateTime ?FechaSolicitud);
          decimal CalcularCuotaPrestamo(decimal Monto, decimal interes, int number_years, int paymentPerYear);
         decimal CalcularInteres_Simple(decimal Monto, decimal interes);
 

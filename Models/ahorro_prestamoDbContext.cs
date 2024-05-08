@@ -272,34 +272,8 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Models
                     .HasConstraintName("FK__Prestamo__Id_Gar__5EBF139D");
             });
 
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(25)
-                    .IsUnicode(false)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(20)
-                    .IsUnicode(false)
-                    .HasColumnName("password");
-
-                entity.Property(e => e.Username)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("username");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.User)
-                    .HasForeignKey<User>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Users__password__6EF57B66");
-            });
-
+         
+    
             OnModelCreatingPartial(modelBuilder);
         }
 

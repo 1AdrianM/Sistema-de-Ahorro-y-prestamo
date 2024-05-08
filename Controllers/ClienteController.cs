@@ -22,12 +22,12 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult CreateCliente()
+        public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult CreateCliente(CreateClienteViewModel ClienteVM)
+        public IActionResult Create(CreateClienteViewModel ClienteVM)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateCliente(int id)
+        public async Task<IActionResult> Update(int id)
         {
             var cliente = await _cliente.GetClientById(id);
 
@@ -80,7 +80,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
         }
         [HttpPost]
 
-        public async Task<IActionResult> UpdateCliente(int id, EditViewModel editViewModel)
+        public async Task<IActionResult> Update(int id, EditViewModel editViewModel)
         {
             if (!ModelState.IsValid)
             {
