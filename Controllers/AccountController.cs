@@ -11,11 +11,9 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly UserRepository _userRepository;
-        public AccountController(UserManager<User> userManager , UserRepository userRepository, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager , SignInManager<User> signInManager)
         {
             _userManager = userManager;
-            _userRepository = userRepository;
             _signInManager = signInManager;
         } 
 
