@@ -1,18 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sistema_De_Ahorro_y_Prestamos_v2.Interface;
 using Sistema_De_Ahorro_y_Prestamos_v2.Models;
-using Sistema_De_Ahorro_y_Prestamos_v2.Repositorio;
 using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
 
 namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 {
     public class PrestamoController : Controller
     {
-        private readonly PrestamoRepository _prestamo;
+        private readonly IPrestamo _prestamo;
         private readonly ahorro_prestamoDbContext _context;
-        private readonly GarantiaRepository _garantia;
+        private readonly IGarantia _garantia;
 
-        public PrestamoController(ahorro_prestamoDbContext context, PrestamoRepository prestamo, GarantiaRepository garantia)
+        public PrestamoController(ahorro_prestamoDbContext context, IPrestamo prestamo, IGarantia garantia)
         {
             _prestamo = prestamo;
             _context = context;

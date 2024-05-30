@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Sistema_De_Ahorro_y_Prestamos_v2.Interface;
 using Sistema_De_Ahorro_y_Prestamos_v2.Repositorio;
 using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
 
@@ -6,8 +7,8 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 {
     public class InversionesController : Controller
     {
-        private readonly InversionistaRepository _inversion;
-        public InversionesController(InversionistaRepository inversion){
+        private readonly Ioinversion _inversion;
+        public InversionesController(Ioinversion inversion){
             _inversion = inversion;
 
         }

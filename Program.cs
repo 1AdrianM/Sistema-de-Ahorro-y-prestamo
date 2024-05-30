@@ -13,6 +13,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICliente, ClienteRepository>();
 builder.Services.AddScoped<Ioinversion, InversionistaRepository>();
 builder.Services.AddScoped<IPrestamo, PrestamoRepository>();
+builder.Services.AddScoped<IPrestamo, PrestamoRepository>();
+builder.Services.AddScoped<IGarantia, GarantiaRepository>();
+
 builder.Services.AddDbContext<ahorro_prestamoDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conexion"));
