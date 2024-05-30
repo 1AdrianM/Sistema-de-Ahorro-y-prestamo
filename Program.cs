@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Sistema_De_Ahorro_y_Prestamos_v2.Interface;
 using Sistema_De_Ahorro_y_Prestamos_v2.Models;
 using Sistema_De_Ahorro_y_Prestamos_v2.Repositorio;
+using Sistema_De_Ahorro_y_Prestamos_v2.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,7 @@ var app = builder.Build();
 
 if(args.Length == 1 && args[0].ToLower() == "seeddata"){
     
+    await Seed.SeedUserAndRoles(app);
 
 }
 
