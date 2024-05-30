@@ -23,12 +23,14 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Models
         public virtual DbSet<Garantium> Garantia { get; set; } = null!;
         public virtual DbSet<Inversione> Inversiones { get; set; } = null!;
         public virtual DbSet<Prestamo> Prestamos { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<User> Userss { get; set; } = null!;
 
       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.ToTable("Cliente");

@@ -8,104 +8,72 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 {
     public class PrestamoController : Controller
     {
-        //private readonly PrestamoRepository _prestamo;
+        private readonly PrestamoRepository _prestamo;
         private readonly ahorro_prestamoDbContext _context;
         private readonly GarantiaRepository _garantia;
 
-        public PrestamoController(ahorro_prestamoDbContext context,/* PrestamoRepository prestamo*/ GarantiaRepository garantia)
+        public PrestamoController(ahorro_prestamoDbContext context, PrestamoRepository prestamo, GarantiaRepository garantia)
         {
-        //    _prestamo = prestamo;
-            _context  = context;
+            _prestamo = prestamo;
+            _context = context;
             _garantia = garantia;
         }
-      
+
         public IActionResult Index()
         {
             return View();
-     
+
         }
 
         [HttpGet]
-        public IActionResult Create(){
-
-var response = new CreatePrestamoViewModel();
-        
-        /*  
-           var garantia = _garantia.GetGarantiaById(id);
-
-            var prestamo = _prestamo.GetPrestamoById(id);
-        
+        public IActionResult Create()
+        {
 
 
-          IdPrestamo
-        FechaSolicitud
-        DateTime? FechaAppro 
-        DateTime? FechaInicio 
-         DateTime? FechaTermino 
-         IdClienteFiador 
-        IdClientPrestatario 
-         IdGarantia 
-         Monto 
-         Interes 
-         TipoGarantia 
-         Valor 
-         Ubicacion 
+            var response = new CreatePrestamoViewModel();
 
-
-    };
-
-            var garantiaVM = GarantiaViewModel{
-
-
-            };*/
-
-            return View(response);  
+            return View(response);
         }
 
         [HttpPost]
-        public IActionResult Create(CreatePrestamoViewModel prestamoViewModel,  DateTime? FechaSolicitud)
+        public IActionResult Create(CreatePrestamoViewModel prestamoViewModel //DateTime? FechaSolicitud
+            )
         {
             if (!ModelState.IsValid) return View("Error");
 
-        /*    var prestamo = new Prestamo
-            { 
-            
+            var prestamo = new Prestamo()
+            {
+                IdPrestamo = prestamoViewModel.IdPrestamo,
+                FechaSolicitud = prestamoViewModel.FechaSolicitud,
+                FechaInicio = prestamoViewModel.FechaInicio,
+                IdClienteFiador = prestamoViewModel.IdClienteFiador,
+                IdClientPrestatario = prestamoViewModel.IdClientPrestatario,
+                IdGarantia = prestamoViewModel.IdGarantia,
+                Monto = prestamoViewModel.Monto,
+                Interes = prestamoViewModel.Interes
             };
             var new_garantia = new Garantium()
-            { 
+            {
+
+                IdGarantia = prestamoViewModel.IdGarantia,
+                TipoGarantia = prestamoViewModel.TipoGarantia,
+                Valor = prestamoViewModel.Valor,
+                Ubicacion = prestamoViewModel.Ubicacion,
+
             };
             _prestamo.Add(prestamo);
             _garantia.Add(new_garantia);
 
-            var Solicitud_Aprobada = _prestamo.SolicitudPrestamo(prestamo, FechaSolicitud);
-          */
+            // var Solicitud_Aprobada = _prestamo.SolicitudPrestamo(prestamo, FechaSolicitud);
 
-            return View();
-        }
 
-     [HttpGet]    
-    public async Task<IActionResult> Garantia(int id)
-        {
-            var Garantia =  await _garantia.GetGarantiaById(id);
+            return RedirectToAction("Dash");
 
-            var new_garantia = new GarantiaViewModel()
-            {
-        //IdGarantia = id, 
-        //TipoGarantia = Garantia?.TipoGarantia, 
-        //Valor =     Garantia?.Valor,
-        //Ubicacion = Garantia?.Ubicacion
-       };
 
-          return View(new_garantia);
-        }
-           
-        
-     [HttpPost]    
-    public IActionResult Garantia(GarantiaViewModel garantiaViewModel)
-        {
-            return View(); 
-        }
-    
+        } 
+
+
+
+
     }
-
 }
