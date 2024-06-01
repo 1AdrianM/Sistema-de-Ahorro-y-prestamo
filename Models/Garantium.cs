@@ -10,7 +10,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Models
             Prestamos = new HashSet<Prestamo>();
        }
 
-        public int?IdGarantia { get; set; }
+        public int IdGarantia { get; set; }
         public string? TipoGarantia { get; set; }
         public string? Valor { get; set; }
         public string? Ubicacion { get; set; }

@@ -6,16 +6,18 @@ using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
 namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 {
     public class PrestamoController : Controller
-    {
+    { 
+        private readonly ICliente _cliente;
         private readonly IPrestamo _prestamo;
         private readonly ahorro_prestamoDbContext _context;
         private readonly IGarantia _garantia;
 
-        public PrestamoController(ahorro_prestamoDbContext context, IPrestamo prestamo, IGarantia garantia)
+        public PrestamoController(ahorro_prestamoDbContext context, IPrestamo prestamo, IGarantia garantia, ICliente cliente)
         {
             _prestamo = prestamo;
             _context = context;
             _garantia = garantia;
+            _cliente = cliente;
         }
 
         public IActionResult Index()
@@ -25,13 +27,14 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+              var IdFiador = _cliente.GetFiadorClientById(id);
+            var PrestamoVm = new CreatePrestamoViewModel(){
+                IdClienteFiador = IdFiador.Id
+            };
 
-
-            var response = new CreatePrestamoViewModel();
-
-            return View(response);
+            return View(PrestamoVm);
         }
 
         [HttpPost]
@@ -43,8 +46,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             var prestamo = new Prestamo()
             {
                 IdPrestamo = prestamoViewModel.IdPrestamo,
-                FechaSolicitud = prestamoViewModel.FechaSolicitud,
-                FechaInicio = prestamoViewModel.FechaInicio,
+                FechaSolicitud = DateTime.Now,
                 IdClienteFiador = prestamoViewModel.IdClienteFiador,
                 IdClientPrestatario = prestamoViewModel.IdClientPrestatario,
                 IdGarantia = prestamoViewModel.IdGarantia,
@@ -53,8 +55,6 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
             };
             var new_garantia = new Garantium()
             {
-
-                IdGarantia = prestamoViewModel.IdGarantia,
                 TipoGarantia = prestamoViewModel.TipoGarantia,
                 Valor = prestamoViewModel.Valor,
                 Ubicacion = prestamoViewModel.Ubicacion,

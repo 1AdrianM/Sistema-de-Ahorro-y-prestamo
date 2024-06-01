@@ -6,6 +6,8 @@
         public string? TipoCliente { get; set; }
         public string? Cedula { get; set; }
         public string? Nombre { get; set; }
+        
+        public string? Genre { get; set; }
         public int? BancoCuenta { get; set; }
         public string? Direccion { get; set; }
         public string? Telefono { get; set; }

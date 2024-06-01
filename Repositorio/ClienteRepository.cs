@@ -40,9 +40,15 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Repositorio
             return await _context.Clientes.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
                 }
 
-        public async Task<Prestamo?> GetPrestamoById(int id)
+        public async Task<Prestamo?> GetClientePrestamoById(int id)
         {
-            return await _context.Prestamos.FirstOrDefaultAsync(i => i.IdPrestamo == id);
+          return await _context.Prestamos.FirstOrDefaultAsync(i => i.IdPrestamo == id);
+
+        }
+
+        public async Task<Cliente?> GetFiadorClientById(int id)
+        {
+          return await  _context.Clientes.Include(fd=> fd.PrestamoIdClienteFiadorNavigations).FirstOrDefaultAsync(i => i.Id==id );
         }
 
         public bool Save()
