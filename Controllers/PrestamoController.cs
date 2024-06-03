@@ -45,7 +45,6 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Controllers
 
             var prestamo = new Prestamo()
             {
-                IdPrestamo = prestamoViewModel.IdPrestamo,
                 FechaSolicitud = DateTime.Now,
                 IdClienteFiador = prestamoViewModel.IdClienteFiador,
                 IdClientPrestatario = prestamoViewModel.IdClientPrestatario,

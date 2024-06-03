@@ -25,5 +25,7 @@ namespace Sistema_De_Ahorro_y_Prestamos_v2.Models
         public virtual Cliente? IdClienteFiadorNavigation { get; set; }
         public virtual Garantium? IdGarantiaNavigation { get; set; }
         public virtual ICollection<Cuotum> Cuota { get; set; }
+
+       
     }
 }

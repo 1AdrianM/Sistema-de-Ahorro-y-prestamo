@@ -1,10 +1,20 @@
-﻿@using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
+﻿@using Sistema_De_Ahorro_y_Prestamos_v2.Data.Enum
+@using Sistema_De_Ahorro_y_Prestamos_v2.ViewModels;
 @model CreatePrestamoViewModel;
+
 <div class="" style="height: 100vh;">
 <div class="container-fluid">
   <h3>Prestamos</h3>
 <form method="post" class="row g-2" >
   <div class="form-group">
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+    <label asp-for="IdClienteFiador">Fiador</label>
+     <input asp-for="IdClienteFiador" value="@Model.IdClienteFiador" readonly type="text" class="form-control" />
+
+  </div>
+  <a  asp-action="Create" asp-controller="Cliente" class="hidden"> No Tienes Fiador Registrado? </a>
 </div>
 <div class="col-md-6">
 <div class="form-group">
@@ -14,21 +24,18 @@
 </div>
 <div class="col-md-6">
   <div class="form-group">
-    <label asp-for="Interes">Interes del credito</label>
-    <input asp-for="Interes" type="number" class="form-control"  placeholder="">
+    <label asp-for="Interes">Interes del credito %</label>
+    <input asp-for="Interes" type="number" class="form-control" readonly value="3" placeholder="">
   </div>
-  </div><div class="col-md-12">
-    <div class="form-group">
-    <label asp-for="IdClienteFiador">Fiador </label>
-     <select asp-for="IdClienteFiador" class="form-control" />
+
   </div>
-</div>
+  
 
 <div class="col-md-6">
 
     <div class="form-group">
-    <label asp-for="TipoGarantia"> Tipo de Garantia </label>
-     <input asp-for="TipoGarantia" type="text" class="form-control" >
+    <label asp-for="TipoGarantia" class="d-none"> Tipo de Garantia </label>
+     <input asp-for="TipoGarantia" type="text" class="d-none form-control" >
   </div>
 </div>
 <div class="col-md-6">
@@ -39,12 +46,13 @@
     </div> 
     </div>
 
-<div class="col-md-6"></div>
+<div class="col-md-6">
     <div class="form-group">
         <label asp-for="Ubicacion">Ubicacion de Prestamo</label>
         <input asp-for="Ubicacion" type="text" class="form-control">
     </div> 
-<div class="col-6">
+    </div>
+<div class="col-12">
   <button type="submit" class="btn btn-primary">Solicitar Prestamo</button>
 </div>
 </form>
